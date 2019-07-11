@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "public": true,
+    "builds": [
+        { "src": "backend/**/*.js", "use": "@now/node" },
+        { "src": "www/package.json", "use": "@now/next" }
+    ],
+    "routes": [
+        {
+            "src": "/auth",
+            "dest": "/backend/auth/index.js"
+        },
+        {
+            "src": "/logout",
+            "dest": "/backend/logout/index.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/www/$1"
+        }
+    ]
+}
